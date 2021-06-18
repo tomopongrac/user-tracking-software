@@ -17,6 +17,7 @@ class CreateUsersTrackingDataTable extends Migration
             $table->id();
             $table->string('uuid');
             $table->string('ip');
+            $table->string('path');
             $table->date('time_start');
             $table->date('time_end')->nullable();
         });

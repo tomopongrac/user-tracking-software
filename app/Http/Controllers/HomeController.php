@@ -25,6 +25,8 @@ class HomeController extends Controller
 
     public function contact()
     {
-        dd('contact');
+        $trackUser = $this->trackUser->saveData();
+
+        return $this->responseWithTracking('contact', $trackUser);
     }
 }

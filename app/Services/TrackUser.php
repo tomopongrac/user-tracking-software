@@ -24,6 +24,7 @@ class TrackUser
         $userTrackingData = new UserTrackingData();
         $userTrackingData->uuid = $uuid;
         $userTrackingData->ip = request()->ip();
+        $userTrackingData->path = request()->path();
         $userTrackingData->time_start = Carbon::now();
         $userTrackingData->save();
 
