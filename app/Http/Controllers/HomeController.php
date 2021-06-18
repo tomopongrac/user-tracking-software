@@ -25,6 +25,9 @@ class HomeController extends Controller
         $userTrackingData->time_start = Carbon::now();
         $userTrackingData->save();
 
-        return response()->view('welcome')->withCookie(cookie()->forever('userTrackingUuid', $uuid));
+        return response()->view('welcome', [
+            'uuid' => $uuid,
+            'id' => $userTrackingData->id
+        ])->withCookie(cookie()->forever('userTrackingUuid', $uuid));
     }
 }
