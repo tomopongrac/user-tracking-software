@@ -58,6 +58,12 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
+To copy absolute path to database/database.sql to clipboard use this command (this command is for terminal on MacOS)
+
+```
+pwd | pbcopy
+```
+
 Now you can migrate your database with this command
 
 ```
@@ -77,4 +83,3 @@ And then open this link [http://127.0.0.1:8000](http://127.0.0.1:8000) in your b
 To enter to admin area first you need to register new account. That you can do by entering link [http://127.0.0.1:8000/register](http://127.0.0.1:8000/register)
 
 If you have account login page is on link [http://127.0.0.1:8000/login](http://127.0.0.1:8000/login)
-
