@@ -29,10 +29,13 @@
     <div class="items-top min-h-screen bg-gray-100 dark:bg-gray-900 py-4 sm:pt-0">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active" href="{{ url('/') }}">Homepage</a>
+                <a class="nav-link" href="{{ url('/') }}">Homepage</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="{{ url('/contact') }}">Contact</a>
+                <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/about') }}">About</a>
             </li>
         </ul>
 
@@ -40,6 +43,7 @@
 
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    @if (isset($uuid) && isset($id))
         <script>
             $(document).ready(function () {
                 $.ajaxSetup({
@@ -59,5 +63,6 @@
                 });
             });
         </script>
+    @endif
     </body>
 </html>

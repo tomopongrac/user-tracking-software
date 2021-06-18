@@ -29,4 +29,9 @@ class HomeController extends Controller
 
         return $this->responseWithTracking('contact', $trackUser);
     }
+
+    public function about()
+    {
+        return response()->view('about');
+    }
 }
