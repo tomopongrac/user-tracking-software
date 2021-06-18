@@ -18,9 +18,9 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        $userTrackingData = $this->trackUser->saveData();
+        $trackUser = $this->trackUser->saveData();
 
-        return responseWithTracking('welcome', $userTrackingData);
+        return $this->responseWithTracking('welcome', $trackUser);
     }
 
     public function contact()

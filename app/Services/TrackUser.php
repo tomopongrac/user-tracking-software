@@ -9,6 +9,8 @@ use Illuminate\Support\Str;
 
 class TrackUser
 {
+    private $userTrackingData = null;
+
     public function saveData()
     {
         // Check if cookie exists
@@ -25,11 +27,18 @@ class TrackUser
         $userTrackingData->time_start = Carbon::now();
         $userTrackingData->save();
 
-        return $userTrackingData;
+        $this->userTrackingData = $userTrackingData;
+
+        return $this;
     }
 
     public function ifCookieExists()
     {
         return request()->hasCookie('userTrackingUuid');
+    }
+
+    public function getUserTrackingData()
+    {
+        return $this->userTrackingData;
     }
 }

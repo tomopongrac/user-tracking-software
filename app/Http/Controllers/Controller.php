@@ -11,11 +11,18 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function responseWithTracking($viewFile, $userTrackingData)
+    protected function responseWithTracking($viewFile, $trackUser)
     {
+        if ($trackUser->ifCookieExists()) {
+            return response()->view($viewFile, [
+                'uuid' => $trackUser->getUserTrackingData()->uuid,
+                'id' => $trackUser->getUserTrackingData()->id
+            ]);
+        }
+
         return response()->view($viewFile, [
-            'uuid' => $userTrackingData->uuid,
-            'id' => $userTrackingData->id
-        ])->withCookie(cookie()->forever('userTrackingUuid', $userTrackingData->uuid));
+            'uuid' => $trackUser->getUserTrackingData()->uuid,
+            'id' => $trackUser->getUserTrackingData()->id
+        ])->withCookie(cookie()->forever('userTrackingUuid', $trackUser->getUserTrackingData()->uuid));
     }
 }
