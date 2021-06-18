@@ -20,6 +20,8 @@ class CreateUsersTrackingDataTable extends Migration
             $table->string('path');
             $table->date('time_start');
             $table->date('time_end')->nullable();
+            $table->date('user_agent')->nullable();
+            $table->date('previous_page')->nullable();
         });
     }
 

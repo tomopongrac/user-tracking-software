@@ -26,6 +26,8 @@ class TrackUser
         $userTrackingData->ip = request()->ip();
         $userTrackingData->path = request()->path();
         $userTrackingData->time_start = Carbon::now();
+        $userTrackingData->user_agent = request()->header('User-Agent');
+        $userTrackingData->previous_page = request()->header('Referer');
         $userTrackingData->save();
 
         $this->userTrackingData = $userTrackingData;
