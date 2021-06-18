@@ -11,7 +11,12 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $uuid = Str::uuid()->toString();
+        // Check if cookie exists
+        if ($request->hasCookie('userTrackingUuid')) {
+            $uuid = $request->cookie('userTrackingUuid');
+        } else {
+            $uuid = Str::uuid()->toString();
+        }
 
         // save data
         $userTrackingData = new UserTrackingData();
@@ -19,7 +24,6 @@ class HomeController extends Controller
         $userTrackingData->ip = $request->ip();
         $userTrackingData->time_start = Carbon::now();
         $userTrackingData->save();
-
 
         return response()->view('welcome')->withCookie(cookie()->forever('userTrackingUuid', $uuid));
     }
