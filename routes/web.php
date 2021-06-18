@@ -17,3 +17,9 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 Route::post('/track-leaving-page', [\App\Http\Controllers\TrackLeavingPageController::class, 'store']);
 
 Auth::routes();
+
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', function () {
+        return view('admin.home');
+    });
+});
