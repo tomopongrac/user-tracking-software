@@ -30,4 +30,9 @@ class HomeController extends Controller
             'id' => $userTrackingData->id
         ])->withCookie(cookie()->forever('userTrackingUuid', $uuid));
     }
+
+    public function contact()
+    {
+        dd('contact');
+    }
 }

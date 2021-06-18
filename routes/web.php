@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact']);
 Route::post('/track-leaving-page', [\App\Http\Controllers\TrackLeavingPageController::class, 'store']);
 
 Auth::routes();
