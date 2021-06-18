@@ -22,4 +22,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', function () {
         return view('admin.home');
     });
+
+    Route::get('/admin/user-tracking-data', [\App\Http\Controllers\Admin\UserTrackingDataController::class, 'index']);
 });
