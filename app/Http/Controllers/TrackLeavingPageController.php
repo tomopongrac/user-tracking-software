@@ -10,7 +10,12 @@ class TrackLeavingPageController extends Controller
 {
     public function store(Request $request)
     {
-        $userTrackingData = UserTrackingData::find($request->id);
+        $userTrackingData = UserTrackingData::where('id', $request->id)->where('uuid', $request->uuid)->first();
+
+        if ($userTrackingData === null) {
+            return;
+        }
+
         $userTrackingData->time_end = Carbon::now();
         $userTrackingData->save();
     }
