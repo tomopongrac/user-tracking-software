@@ -11,7 +11,7 @@
         <tr>
             <td>{{ $data->uuid }}</td>
             <td>{{ $data->ip }}</td>
-            <td>{{ $data->time_end }}</td>
+            <td>{{ $data->duration }}</td>
         </tr>
     @endforeach
     </tbody>
